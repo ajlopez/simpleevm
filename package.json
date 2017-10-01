@@ -1,7 +1,7 @@
 { "name": "simpleevm"
-, "description": "Smart contract programming language, compiled to Ethereum Virtual Machine or transpiled to C#/Java, WIP"
-, "keywords": [ "smart contract", "language", "compiler", "transpiler", "ethereum" ]
-, "version": "0.0.1alpha"
+, "description": "Simple EVM (Ethereum Virtual Machine), WIP"
+, "keywords": [ "ethereum", "vm", "virtual machine", "evm" ]
+, "version": "0.0.1beta"
 , "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
 , "repository": { "type": "git", "url": "git://github.com/ajlopez/simpleevm.git" }
 , "main": "./lib/simpleevm.js"
