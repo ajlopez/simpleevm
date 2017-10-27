@@ -18,7 +18,8 @@ See tests
 
 ## References
 
-TBD
+- [Ethereum Project](https://ethereum.org/)
+- [Designing a new virtual machine and universal language framework](https://iohk.io/blog/designing-a-new-virtual-machine-and-universal-language-framework)
 
 ## Samples
 
