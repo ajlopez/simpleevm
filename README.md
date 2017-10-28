@@ -20,6 +20,8 @@ See tests
 
 - [Ethereum Project](https://ethereum.org/)
 - [Designing a new virtual machine and universal language framework](https://iohk.io/blog/designing-a-new-virtual-machine-and-universal-language-framework)
+- [Ethereum Virtual Machine: Where are the opcode 0xfe and 0xfd documented?](https://ethereum.stackexchange.com/questions/19152/where-are-the-opcode-0xfe-and-0xfd-documented)
+
 
 ## Samples
 
