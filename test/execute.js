@@ -28,3 +28,13 @@ exports['execute push three bytes'] = function (test) {
 	test.equal(status.stack.size(), 1);
 	test.equal(status.stack.pop(), 256 * 256);
 }
+
+exports['execute two pushes and one add'] = function (test) {
+	var status = simpleevm.execute("6001600201");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 3);
+}
+
