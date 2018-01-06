@@ -47,4 +47,14 @@ exports['execute two pushes and one subtract'] = function (test) {
 	test.equal(status.stack.pop(), 1);
 }
 
+exports['execute two pushes and one multiply'] = function (test) {
+	var status = simpleevm.execute("6002600302");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 6);
+}
+
+
 
