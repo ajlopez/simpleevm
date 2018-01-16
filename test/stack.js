@@ -27,3 +27,21 @@ exports['push and pop value'] = function (test) {
 	test.equal(result, 42);
 }
 
+exports['push, push and put value'] = function (test) {
+	var st = stack();
+	
+	st.push(1);
+	st.push(2);
+	
+	st.put(0, 42);
+	
+	var result = st.pop();
+	
+	test.equal(st.size(), 1);
+	test.equal(result, 2);
+	
+	var result = st.pop();
+	
+	test.equal(st.size(), 0);
+	test.equal(result, 42);
+}
