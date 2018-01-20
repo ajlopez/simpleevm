@@ -66,7 +66,7 @@ exports['execute push and dup'] = function (test) {
 	test.equal(status.stack.pop(), 1);
 }
 
-exports['execute two pushes and swap|'] = function (test) {
+exports['execute two pushes and swap1'] = function (test) {
 	var status = simpleevm.execute("6001600290");
 	
 	test.ok(status);
@@ -75,6 +75,18 @@ exports['execute two pushes and swap|'] = function (test) {
 	test.equal(status.stack.pop(), 1);
 	test.equal(status.stack.pop(), 2);
 }
+
+exports['execute three pushes and swap2'] = function (test) {
+	var status = simpleevm.execute("60016002600391");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 3);
+	test.equal(status.stack.pop(), 1);
+	test.equal(status.stack.pop(), 2);
+	test.equal(status.stack.pop(), 3);
+}
+
 
 
 
