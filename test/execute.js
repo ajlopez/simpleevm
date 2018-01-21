@@ -87,7 +87,7 @@ exports['execute three pushes and swap2'] = function (test) {
 	test.equal(status.stack.pop(), 3);
 }
 
-exports['execute n pushes and swap n'] = function (test) {
+exports['execute n pushes and swap n - 1'] = function (test) {
 	for (var k = 0; k < 16; k++) {
 		var code = '';
 
@@ -109,6 +109,27 @@ exports['execute n pushes and swap n'] = function (test) {
 	}
 }
 
+exports['execute n pushes and dup n'] = function (test) {
+	for (var k = 0; k < 16; k++) {
+		var code = '';
+
+		for (var j = 0; j < k + 1; j++)
+			if (j >= 16)
+				code += '60' + j.toString(16);
+			else
+				code += '600' + j.toString(16);
+	
+		code += (k + 8 * 16).toString(16);
+
+		var status = simpleevm.execute(code);
+	
+		test.ok(status);
+		test.ok(status.stack);
+		test.equal(status.stack.size(), k + 2);
+		test.equal(status.stack.peek(0), 0);
+		test.equal(status.stack.peek(1), k);
+	}
+}
 
 
 
