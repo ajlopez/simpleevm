@@ -65,6 +65,15 @@ exports['execute two pushes and one divide'] = function (test) {
 	test.equal(status.stack.pop(), 3);
 }
 
+exports['execute div with zero divisor'] = function (test) {
+	var status = simpleevm.execute("6000600604");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 0);
+}
+
 exports['execute push and dup'] = function (test) {
 	var status = simpleevm.execute("600180");
 	
