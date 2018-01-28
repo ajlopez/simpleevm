@@ -92,6 +92,15 @@ exports['execute mod with zero divisor'] = function (test) {
 	test.equal(status.stack.pop(), 0);
 }
 
+exports['execute two pushes and exp'] = function (test) {
+	var status = simpleevm.execute("600360020a");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 8);
+}
+
 exports['execute push and dup'] = function (test) {
 	var status = simpleevm.execute("600180");
 	
