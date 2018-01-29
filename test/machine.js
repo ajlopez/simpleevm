@@ -10,6 +10,16 @@ exports['create with empty stack'] = function (test) {
 	test.equal(state.stack.size(), 0);
 }
 
+exports['create with initial state'] = function (test) {
+	var mach = machine({ address: '0x01020304' });	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 0);
+	test.ok(state.address);
+	test.equal(state.address, '0x01020304');
+}
 
 exports['execute push byte'] = function (test) {
 	var mach = machine();
