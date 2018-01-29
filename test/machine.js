@@ -1,6 +1,16 @@
 
 var machine = require('../lib/machine');
 
+exports['create with empty stack'] = function (test) {
+	var mach = machine();	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 0);
+}
+
+
 exports['execute push byte'] = function (test) {
 	var mach = machine();
 	
