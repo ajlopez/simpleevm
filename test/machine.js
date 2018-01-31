@@ -73,3 +73,18 @@ exports['execute address'] = function (test) {
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.address, 0x01020304);
 }
+
+exports['execute balance'] = function (test) {
+	var mach = machine({ balance: 0x01020304 });
+	
+	mach.execute(Buffer.from("31", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.get(0), 0x01020304);
+	test.equal(state.balance, 0x01020304);
+}
+
