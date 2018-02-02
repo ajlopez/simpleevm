@@ -101,3 +101,17 @@ exports['execute origin'] = function (test) {
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.origin, 0x01020304);
 }
+
+exports['execute caller'] = function (test) {
+	var mach = machine({ caller: 0x01020304 });
+	
+	mach.execute(Buffer.from("33", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.get(0), 0x01020304);
+	test.equal(state.caller, 0x01020304);
+}
