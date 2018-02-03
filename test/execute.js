@@ -176,5 +176,32 @@ exports['execute n pushes and dup n'] = function (test) {
 	}
 }
 
+exports['execute two pushes and lt given true'] = function (test) {
+	var status = simpleevm.execute("6002600110");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 1);
+}
+
+exports['execute two pushes and lt given false'] = function (test) {
+	var status = simpleevm.execute("6002600310");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 0);
+}
+
+exports['execute two pushes and lt given false when equal'] = function (test) {
+	var status = simpleevm.execute("6002600210");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 0);
+}
+
 
 
