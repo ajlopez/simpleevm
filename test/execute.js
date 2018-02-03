@@ -203,5 +203,30 @@ exports['execute two pushes and lt given false when equal'] = function (test) {
 	test.equal(status.stack.pop(), 0);
 }
 
+exports['execute two pushes and gt given true'] = function (test) {
+	var status = simpleevm.execute("6002600311");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 1);
+}
 
+exports['execute two pushes and gt given false'] = function (test) {
+	var status = simpleevm.execute("6002600111");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 0);
+}
+
+exports['execute two pushes and gt given false when equal'] = function (test) {
+	var status = simpleevm.execute("6002600211");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 0);
+}
 
