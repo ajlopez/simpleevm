@@ -248,3 +248,21 @@ exports['execute two pushes and eq given false'] = function (test) {
 	test.equal(status.stack.pop(), 0);
 }
 
+exports['execute push and iszero'] = function (test) {
+	var status = simpleevm.execute("600015");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 1);
+}
+
+exports['execute push and iszero given false'] = function (test) {
+	var status = simpleevm.execute("600115");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 0);
+}
+
