@@ -275,3 +275,12 @@ exports['execute and'] = function (test) {
 	test.equal(status.stack.pop(), 257);
 }
 
+exports['execute or'] = function (test) {
+	var status = simpleevm.execute("610fff61010117");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 0x0fff);
+}
+
