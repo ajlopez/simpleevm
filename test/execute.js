@@ -266,3 +266,12 @@ exports['execute push and iszero given false'] = function (test) {
 	test.equal(status.stack.pop(), 0);
 }
 
+exports['execute and'] = function (test) {
+	var status = simpleevm.execute("610fff61010116");
+	
+	test.ok(status);
+	test.ok(status.stack);
+	test.equal(status.stack.size(), 1);
+	test.equal(status.stack.pop(), 257);
+}
+
