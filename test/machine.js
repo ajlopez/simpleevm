@@ -130,3 +130,17 @@ exports['execute number'] = function (test) {
 	test.equal(state.number, 0x01020304);
 }
 
+exports['execute timestamp'] = function (test) {
+	var mach = machine({ timestamp: 0x01020304 });
+	
+	mach.execute(Buffer.from("42", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.get(0), 0x01020304);
+	test.equal(state.timestamp, 0x01020304);
+}
+
