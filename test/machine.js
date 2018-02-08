@@ -144,3 +144,17 @@ exports['execute timestamp'] = function (test) {
 	test.equal(state.timestamp, 0x01020304);
 }
 
+exports['execute difficulty'] = function (test) {
+	var mach = machine({ difficulty: 0x01020304 });
+	
+	mach.execute(Buffer.from("44", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.get(0), 0x01020304);
+	test.equal(state.difficulty, 0x01020304);
+}
+
