@@ -2,134 +2,134 @@
 var simpleevm = require('..');
 
 exports['execute push one byte'] = function (test) {
-	var status = simpleevm.execute("6001");
+	var state = simpleevm.execute("6001");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 1);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 1);
 }
 
 exports['execute push two bytes'] = function (test) {
-	var status = simpleevm.execute("610102");
+	var state = simpleevm.execute("610102");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 258);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 258);
 }
 
 
 exports['execute push three bytes'] = function (test) {
-	var status = simpleevm.execute("62010000");
+	var state = simpleevm.execute("62010000");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 256 * 256);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 256 * 256);
 }
 
 exports['execute two pushes and one add'] = function (test) {
-	var status = simpleevm.execute("6001600201");
+	var state = simpleevm.execute("6001600201");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 3);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 3);
 }
 
 exports['execute two pushes and one subtract'] = function (test) {
-	var status = simpleevm.execute("6001600203");
+	var state = simpleevm.execute("6001600203");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 1);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 1);
 }
 
 exports['execute two pushes and one multiply'] = function (test) {
-	var status = simpleevm.execute("6002600302");
+	var state = simpleevm.execute("6002600302");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 6);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 6);
 }
 
 exports['execute two pushes and divide'] = function (test) {
-	var status = simpleevm.execute("6002600604");
+	var state = simpleevm.execute("6002600604");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 3);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 3);
 }
 
 exports['execute div with zero divisor'] = function (test) {
-	var status = simpleevm.execute("6000600604");
+	var state = simpleevm.execute("6000600604");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 0);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
 }
 
 exports['execute two pushes and mod'] = function (test) {
-	var status = simpleevm.execute("6003600506");
+	var state = simpleevm.execute("6003600506");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 2);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 2);
 }
 
 exports['execute mod with zero divisor'] = function (test) {
-	var status = simpleevm.execute("6000600606");
+	var state = simpleevm.execute("6000600606");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 0);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
 }
 
 exports['execute two pushes and exp'] = function (test) {
-	var status = simpleevm.execute("600360020a");
+	var state = simpleevm.execute("600360020a");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 8);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 8);
 }
 
 exports['execute push and dup'] = function (test) {
-	var status = simpleevm.execute("600180");
+	var state = simpleevm.execute("600180");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 2);
-	test.equal(status.stack.pop(), 1);
-	test.equal(status.stack.pop(), 1);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 2);
+	test.equal(state.stack.pop(), 1);
+	test.equal(state.stack.pop(), 1);
 }
 
 exports['execute two pushes and swap1'] = function (test) {
-	var status = simpleevm.execute("6001600290");
+	var state = simpleevm.execute("6001600290");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 2);
-	test.equal(status.stack.pop(), 1);
-	test.equal(status.stack.pop(), 2);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 2);
+	test.equal(state.stack.pop(), 1);
+	test.equal(state.stack.pop(), 2);
 }
 
 exports['execute three pushes and swap2'] = function (test) {
-	var status = simpleevm.execute("60016002600391");
+	var state = simpleevm.execute("60016002600391");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 3);
-	test.equal(status.stack.pop(), 1);
-	test.equal(status.stack.pop(), 2);
-	test.equal(status.stack.pop(), 3);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 3);
+	test.equal(state.stack.pop(), 1);
+	test.equal(state.stack.pop(), 2);
+	test.equal(state.stack.pop(), 3);
 }
 
 exports['execute n pushes and swap n - 1'] = function (test) {
@@ -144,13 +144,13 @@ exports['execute n pushes and swap n - 1'] = function (test) {
 	
 		code += (k + 9 * 16).toString(16);
 
-		var status = simpleevm.execute(code);
+		var state = simpleevm.execute(code);
 	
-		test.ok(status);
-		test.ok(status.stack);
-		test.equal(status.stack.size(), k + 2);
-		test.equal(status.stack.peek(0), 0);
-		test.equal(status.stack.peek(k + 1), k + 1);
+		test.ok(state);
+		test.ok(state.stack);
+		test.equal(state.stack.size(), k + 2);
+		test.equal(state.stack.peek(0), 0);
+		test.equal(state.stack.peek(k + 1), k + 1);
 	}
 }
 
@@ -166,121 +166,130 @@ exports['execute n pushes and dup n'] = function (test) {
 	
 		code += (k + 8 * 16).toString(16);
 
-		var status = simpleevm.execute(code);
+		var state = simpleevm.execute(code);
 	
-		test.ok(status);
-		test.ok(status.stack);
-		test.equal(status.stack.size(), k + 2);
-		test.equal(status.stack.peek(0), 0);
-		test.equal(status.stack.peek(1), k);
+		test.ok(state);
+		test.ok(state.stack);
+		test.equal(state.stack.size(), k + 2);
+		test.equal(state.stack.peek(0), 0);
+		test.equal(state.stack.peek(1), k);
 	}
 }
 
 exports['execute two pushes and lt given true'] = function (test) {
-	var status = simpleevm.execute("6002600110");
+	var state = simpleevm.execute("6002600110");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 1);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 1);
 }
 
 exports['execute two pushes and lt given false'] = function (test) {
-	var status = simpleevm.execute("6002600310");
+	var state = simpleevm.execute("6002600310");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 0);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
 }
 
 exports['execute two pushes and lt given false when equal'] = function (test) {
-	var status = simpleevm.execute("6002600210");
+	var state = simpleevm.execute("6002600210");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 0);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
 }
 
 exports['execute two pushes and gt given true'] = function (test) {
-	var status = simpleevm.execute("6002600311");
+	var state = simpleevm.execute("6002600311");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 1);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 1);
 }
 
 exports['execute two pushes and gt given false'] = function (test) {
-	var status = simpleevm.execute("6002600111");
+	var state = simpleevm.execute("6002600111");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 0);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
 }
 
 exports['execute two pushes and gt given false when equal'] = function (test) {
-	var status = simpleevm.execute("6002600211");
+	var state = simpleevm.execute("6002600211");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 0);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
 }
 
 exports['execute two pushes and eq'] = function (test) {
-	var status = simpleevm.execute("6002600214");
+	var state = simpleevm.execute("6002600214");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 1);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 1);
 }
 
 exports['execute two pushes and eq given false'] = function (test) {
-	var status = simpleevm.execute("6002600314");
+	var state = simpleevm.execute("6002600314");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 0);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
 }
 
 exports['execute push and iszero'] = function (test) {
-	var status = simpleevm.execute("600015");
+	var state = simpleevm.execute("600015");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 1);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 1);
 }
 
 exports['execute push and iszero given false'] = function (test) {
-	var status = simpleevm.execute("600115");
+	var state = simpleevm.execute("600115");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 0);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
 }
 
 exports['execute and'] = function (test) {
-	var status = simpleevm.execute("610fff61010116");
+	var state = simpleevm.execute("610fff61010116");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 257);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 257);
 }
 
 exports['execute or'] = function (test) {
-	var status = simpleevm.execute("610fff61010117");
+	var state = simpleevm.execute("610fff61010117");
 	
-	test.ok(status);
-	test.ok(status.stack);
-	test.equal(status.stack.size(), 1);
-	test.equal(status.stack.pop(), 0x0fff);
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0x0fff);
 }
 
+exports['execute number using state'] = function (test) {
+	var state = simpleevm.execute("43", { number: 0x01020304 });
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0x01020304);
+	test.equal(state.number, 0x01020304);
+}
