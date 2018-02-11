@@ -92,6 +92,24 @@ exports['execute mod with zero divisor'] = function (test) {
 	test.equal(state.stack.pop(), 0);
 }
 
+exports['execute addmod'] = function (test) {
+	var state = simpleevm.execute("60036001600408");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 2);
+}
+
+exports['execute addmod with zero divisor'] = function (test) {
+	var state = simpleevm.execute("60006001600408");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
+}
+
 exports['execute two pushes and exp'] = function (test) {
 	var state = simpleevm.execute("600360020a");
 	
