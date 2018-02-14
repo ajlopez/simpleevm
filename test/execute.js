@@ -320,6 +320,15 @@ exports['execute or'] = function (test) {
 	test.equal(state.stack.pop(), 0x0fff);
 }
 
+exports['execute xor'] = function (test) {
+	var state = simpleevm.execute("610fff61010118");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0x0efe);
+}
+
 exports['execute number using state'] = function (test) {
 	var state = simpleevm.execute("43", { number: 0x01020304 });
 	
