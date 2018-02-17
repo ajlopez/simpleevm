@@ -338,6 +338,15 @@ exports['execute byte'] = function (test) {
 	test.equal(state.stack.pop(), 0x0f);
 }
 
+exports['execute byte with offset out of range'] = function (test) {
+	var state = simpleevm.execute("610fff6101001a");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
+}
+
 exports['execute number using state'] = function (test) {
 	var state = simpleevm.execute("43", { number: 0x01020304 });
 	
