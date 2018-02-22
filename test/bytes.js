@@ -11,3 +11,13 @@ exports['convert simple integer to bytes'] = function (test) {
 	test.equal(1, result[1]);
 };
 
+exports['convert hexa string to bytes'] = function (test) {
+	var result = bytes.toBytes("0x01ff");
+	
+	test.ok(result);
+	test.ok(Array.isArray(result));
+	test.equal(2, result.length);
+	test.equal(255, result[0]);
+	test.equal(1, result[1]);
+};
+
