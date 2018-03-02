@@ -329,6 +329,19 @@ exports['execute xor'] = function (test) {
 	test.equal(state.stack.pop(), 0x0efe);
 }
 
+exports['execute not'] = function (test) {
+	var state = simpleevm.execute("610fff119");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	
+	var result = state.stack.pop();
+	
+	test.ok(result);
+	test.equal(result.length, 32);
+}
+
 exports['execute byte'] = function (test) {
 	var state = simpleevm.execute("610fff601e1a");
 	
