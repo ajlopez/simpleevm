@@ -330,7 +330,7 @@ exports['execute xor'] = function (test) {
 }
 
 exports['execute not'] = function (test) {
-	var state = simpleevm.execute("610fff119");
+	var state = simpleevm.execute("610fff19");
 	
 	test.ok(state);
 	test.ok(state.stack);
@@ -338,7 +338,7 @@ exports['execute not'] = function (test) {
 	
 	var result = state.stack.pop();
 	
-	test.ok(result);
+		test.ok(result);
 	test.equal(result.length, 32);
 }
 
