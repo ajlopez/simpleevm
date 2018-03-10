@@ -186,3 +186,17 @@ exports['execute coinbase'] = function (test) {
 	test.equal(state.coinbase, 0x01020304);
 }
 
+exports['execute callvalue'] = function (test) {
+	var mach = machine({ callvalue: 0x01020304 });
+	
+	mach.execute(Buffer.from("34", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.get(0), 0x01020304);
+	test.equal(state.callvalue, 0x01020304);
+}
+
