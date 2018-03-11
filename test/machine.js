@@ -200,3 +200,17 @@ exports['execute callvalue'] = function (test) {
 	test.equal(state.callvalue, 0x01020304);
 }
 
+exports['execute calldatasize'] = function (test) {
+	var mach = machine({ calldata: [ 0x01, 0x02, 0x03, 0x04 ] });
+	
+	mach.execute(Buffer.from("36", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.get(0), 4);
+	test.deepEqual(state.calldata, [ 0x01, 0x02, 0x03, 0x04 ]);
+}
+
