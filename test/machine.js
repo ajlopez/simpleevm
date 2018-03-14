@@ -215,7 +215,8 @@ exports['execute calldatasize'] = function (test) {
 }
 
 exports['execute calldataload'] = function (test) {
-	var mach = machine({ calldata: [ 0x01, 0x02, 0x03, 0x04 ] });
+	var data = [ 0x01, 0x02, 0x03, 0x04 ];
+	var mach = machine({ calldata: data });
 	
 	mach.execute(Buffer.from("600135", 'hex'));
 	
@@ -230,6 +231,12 @@ exports['execute calldataload'] = function (test) {
 	test.ok(Array.isArray(result));
 	test.equal(result.length, 32);
 	
-	test.deepEqual(state.calldata, [ 0x01, 0x02, 0x03, 0x04 ]);
+	for (var k = 0; k < data.length - 1; k++)
+test.equal(result[k], data[k + 1]);
+	
+	for (; k < result.length; k++)
+		test.equal(result[k], 0);
+	
+	test.deepEqual(state.calldata, data);
 }
 
