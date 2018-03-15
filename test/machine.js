@@ -232,11 +232,30 @@ exports['execute calldataload'] = function (test) {
 	test.equal(result.length, 32);
 	
 	for (var k = 0; k < data.length - 1; k++)
-test.equal(result[k], data[k + 1]);
+		test.equal(result[k], data[k + 1]);
 	
 	for (; k < result.length; k++)
 		test.equal(result[k], 0);
 	
 	test.deepEqual(state.calldata, data);
+}
+
+exports['execute calldataload with null call data'] = function (test) {
+	var mach = machine();
+	mach.execute(Buffer.from("600135", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	
+	var result = state.stack.get(0);
+
+	test.ok(Array.isArray(result));
+	test.equal(result.length, 32);
+	
+	for (k = 0; k < result.length; k++)
+		test.equal(result[k], 0);
 }
 
