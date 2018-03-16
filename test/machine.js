@@ -214,6 +214,19 @@ exports['execute calldatasize'] = function (test) {
 	test.deepEqual(state.calldata, [ 0x01, 0x02, 0x03, 0x04 ]);
 }
 
+exports['execute calldatasize with null data'] = function (test) {
+	var mach = machine();
+	
+	mach.execute(Buffer.from("36", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.get(0), 0);
+}
+
 exports['execute calldataload'] = function (test) {
 	var data = [ 0x01, 0x02, 0x03, 0x04 ];
 	var mach = machine({ calldata: data });
