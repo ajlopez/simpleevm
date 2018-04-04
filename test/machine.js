@@ -272,3 +272,17 @@ exports['execute calldataload with null call data'] = function (test) {
 		test.equal(result[k], 0);
 }
 
+exports['execute gas price'] = function (test) {
+	var mach = machine({ gasprice: 0x01020304 });
+	
+	mach.execute(Buffer.from("3a", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.get(0), 0x01020304);
+	test.equal(state.gasprice, 0x01020304);
+}
+
