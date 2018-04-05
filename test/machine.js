@@ -286,3 +286,14 @@ exports['execute gas price'] = function (test) {
 	test.equal(state.gasprice, 0x01020304);
 }
 
+exports['execute pop'] = function (test) {
+	var mach = machine();
+	mach.execute(Buffer.from("600150", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 0);
+}
+
