@@ -295,5 +295,7 @@ exports['execute pop'] = function (test) {
 	test.ok(state);
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 0);
+	
+	test.equal(state.gasused, 3 + 3);
 }
 
