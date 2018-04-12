@@ -8,6 +8,7 @@ exports['create with empty stack'] = function (test) {
 	test.ok(state);
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 0);
+	test.equal(state.gasused, 0);
 }
 
 exports['create with initial state'] = function (test) {
@@ -19,6 +20,7 @@ exports['create with initial state'] = function (test) {
 	test.equal(state.stack.size(), 0);
 	test.ok(state.address);
 	test.equal(state.address, '0x01020304');
+	test.equal(state.gasused, 0);
 }
 
 exports['execute push byte'] = function (test) {
@@ -32,6 +34,7 @@ exports['execute push byte'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 1);
+	test.equal(state.gasused, 3);
 }
 
 exports['execute push two bytes'] = function (test) {
@@ -45,6 +48,7 @@ exports['execute push two bytes'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x0102);
+	test.equal(state.gasused, 3);
 }
 
 exports['execute push three bytes'] = function (test) {
@@ -58,6 +62,7 @@ exports['execute push three bytes'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x010203);
+	test.equal(state.gasused, 3);
 }
 
 exports['execute address'] = function (test) {
@@ -72,6 +77,7 @@ exports['execute address'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.address, 0x01020304);
+	test.equal(state.gasused, 2);
 }
 
 exports['execute balance'] = function (test) {
