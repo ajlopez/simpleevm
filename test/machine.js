@@ -92,6 +92,7 @@ exports['execute balance'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.balance, 0x01020304);
+	test.equal(state.gasused, 20);
 }
 
 exports['execute origin'] = function (test) {
