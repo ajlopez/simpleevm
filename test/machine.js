@@ -107,7 +107,7 @@ exports['execute origin'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.origin, 0x01020304);
-	test.equal(state.gasused, 20);
+	test.equal(state.gasused, 2);
 }
 
 exports['execute caller'] = function (test) {
@@ -122,7 +122,7 @@ exports['execute caller'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.caller, 0x01020304);
-	test.equal(state.gasused, 20);
+	test.equal(state.gasused, 2);
 }
 
 exports['execute number'] = function (test) {
@@ -137,6 +137,7 @@ exports['execute number'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.number, 0x01020304);
+	test.equal(state.gasused, 2);
 }
 
 exports['execute timestamp'] = function (test) {
@@ -151,6 +152,7 @@ exports['execute timestamp'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.timestamp, 0x01020304);
+	test.equal(state.gasused, 2);
 }
 
 exports['execute difficulty'] = function (test) {
@@ -165,6 +167,7 @@ exports['execute difficulty'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.difficulty, 0x01020304);
+	test.equal(state.gasused, 2);
 }
 
 exports['execute gas limit'] = function (test) {
@@ -179,6 +182,7 @@ exports['execute gas limit'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.gaslimit, 0x01020304);
+	test.equal(state.gasused, 2);
 }
 
 exports['execute coinbase'] = function (test) {
@@ -305,6 +309,6 @@ exports['execute pop'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 0);
 	
-	test.equal(state.gasused, 3 + 3);
+	test.equal(state.gasused, 3 + 2);
 }
 
