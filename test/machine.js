@@ -281,6 +281,8 @@ exports['execute calldataload'] = function (test) {
 		test.equal(result[k], 0);
 	
 	test.deepEqual(state.calldata, data);
+	
+	test.equal(state.gasused, 3 + 3);
 }
 
 exports['execute calldataload with null call data'] = function (test) {
@@ -300,6 +302,8 @@ exports['execute calldataload with null call data'] = function (test) {
 	
 	for (k = 0; k < result.length; k++)
 		test.equal(result[k], 0);
+	
+	test.equal(state.gasused, 3 + 3);
 }
 
 exports['execute gas price'] = function (test) {
