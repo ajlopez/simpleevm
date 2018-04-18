@@ -8,6 +8,8 @@ exports['execute push one byte'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 1);
+
+	test.equal(state.gasused, 3);
 }
 
 exports['execute push two bytes'] = function (test) {
@@ -17,8 +19,9 @@ exports['execute push two bytes'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 258);
-}
 
+	test.equal(state.gasused, 3);
+}
 
 exports['execute push three bytes'] = function (test) {
 	var state = simpleevm.execute("62010000");
@@ -27,6 +30,8 @@ exports['execute push three bytes'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 256 * 256);
+
+	test.equal(state.gasused, 3);
 }
 
 exports['execute two pushes and one add'] = function (test) {
@@ -36,6 +41,8 @@ exports['execute two pushes and one add'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 3);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute two pushes and one subtract'] = function (test) {
