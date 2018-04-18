@@ -368,4 +368,6 @@ exports['execute number using state'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 0x01020304);
 	test.equal(state.number, 0x01020304);
+
+	test.equal(state.gasused, 2);
 }

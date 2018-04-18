@@ -318,6 +318,7 @@ exports['execute gas price'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.get(0), 0x01020304);
 	test.equal(state.gasprice, 0x01020304);
+
 	test.equal(state.gasused, 2);
 }
 
