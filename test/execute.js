@@ -52,6 +52,8 @@ exports['execute two pushes and one subtract'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 1);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute two pushes and one multiply'] = function (test) {
@@ -61,6 +63,8 @@ exports['execute two pushes and one multiply'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 6);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute two pushes and divide'] = function (test) {
@@ -70,6 +74,8 @@ exports['execute two pushes and divide'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 3);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute div with zero divisor'] = function (test) {
@@ -79,6 +85,8 @@ exports['execute div with zero divisor'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 0);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute two pushes and mod'] = function (test) {
