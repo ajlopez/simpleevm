@@ -107,6 +107,8 @@ exports['execute mod with zero divisor'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 0);
+
+	test.equal(state.gasused, 3 + 3 + 5);
 }
 
 exports['execute addmod'] = function (test) {
@@ -116,6 +118,8 @@ exports['execute addmod'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 2);
+
+	test.equal(state.gasused, 3 + 3 + 3 + 8);
 }
 
 exports['execute addmod with zero divisor'] = function (test) {
