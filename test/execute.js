@@ -376,6 +376,8 @@ exports['execute byte'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 0x0f);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute byte with offset out of range'] = function (test) {
