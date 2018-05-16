@@ -365,8 +365,10 @@ exports['execute not'] = function (test) {
 	
 	var result = state.stack.pop();
 	
-		test.ok(result);
+	test.ok(result);
 	test.equal(result.length, 32);
+
+	test.equal(state.gasused, 3 + 3);
 }
 
 exports['execute byte'] = function (test) {
