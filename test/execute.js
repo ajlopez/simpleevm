@@ -354,6 +354,8 @@ exports['execute xor'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 0x0efe);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute not'] = function (test) {
