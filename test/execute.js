@@ -336,6 +336,8 @@ exports['execute and'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 257);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute or'] = function (test) {
