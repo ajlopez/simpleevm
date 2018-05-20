@@ -318,6 +318,8 @@ exports['execute push and iszero'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 1);
+
+	test.equal(state.gasused, 3 + 3);
 }
 
 exports['execute push and iszero given false'] = function (test) {
@@ -327,6 +329,8 @@ exports['execute push and iszero given false'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 0);
+
+	test.equal(state.gasused, 3 + 3);
 }
 
 exports['execute and'] = function (test) {
