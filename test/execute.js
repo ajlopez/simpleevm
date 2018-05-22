@@ -291,6 +291,8 @@ exports['execute two pushes and gt given false when equal'] = function (test) {
 	test.ok(state.stack);
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 0);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute two pushes and eq'] = function (test) {
