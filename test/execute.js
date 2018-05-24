@@ -236,6 +236,8 @@ exports['execute n pushes and dup n'] = function (test) {
 		test.equal(state.stack.size(), k + 2);
 		test.equal(state.stack.peek(0), 0);
 		test.equal(state.stack.peek(1), k);
+
+		test.equal(state.gasused, 3 * (k + 1) + 3);
 	}
 }
 
