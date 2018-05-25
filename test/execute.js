@@ -214,6 +214,8 @@ exports['execute n pushes and swap n - 1'] = function (test) {
 		test.equal(state.stack.size(), k + 2);
 		test.equal(state.stack.peek(0), 0);
 		test.equal(state.stack.peek(k + 1), k + 1);
+
+		test.equal(state.gasused, 3 * (k + 2) + 3);
 	}
 }
 
