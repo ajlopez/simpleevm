@@ -11,6 +11,16 @@ exports['convert simple integer to bytes'] = function (test) {
 	test.equal(1, result[1]);
 };
 
+exports['no convertion if array'] = function (test) {
+	var result = bytes.toBytes([2, 1]);
+	
+	test.ok(result);
+	test.ok(Array.isArray(result));
+	test.equal(2, result.length);
+	test.equal(2, result[0]);
+	test.equal(1, result[1]);
+};
+
 exports['convert simple integer to bytes with expected length'] = function (test) {
 	var result = bytes.toBytes(258, 32);
 	
