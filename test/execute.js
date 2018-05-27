@@ -172,6 +172,8 @@ exports['execute push and dup'] = function (test) {
 	test.equal(state.stack.size(), 2);
 	test.equal(state.stack.pop(), 1);
 	test.equal(state.stack.pop(), 1);
+
+	test.equal(state.gasused, 3 + 3);
 }
 
 exports['execute two pushes and swap1'] = function (test) {
@@ -182,6 +184,8 @@ exports['execute two pushes and swap1'] = function (test) {
 	test.equal(state.stack.size(), 2);
 	test.equal(state.stack.pop(), 1);
 	test.equal(state.stack.pop(), 2);
+
+	test.equal(state.gasused, 3 + 3 + 3);
 }
 
 exports['execute three pushes and swap2'] = function (test) {
@@ -193,6 +197,8 @@ exports['execute three pushes and swap2'] = function (test) {
 	test.equal(state.stack.pop(), 1);
 	test.equal(state.stack.pop(), 2);
 	test.equal(state.stack.pop(), 3);
+
+	test.equal(state.gasused, 3 + 3 + 3 + 3);
 }
 
 exports['execute n pushes and swap n - 1'] = function (test) {
