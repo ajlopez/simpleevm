@@ -56,3 +56,10 @@ exports['convert hexa string to bytes with expected length'] = function (test) {
 	for (var k = 2; k < 32; k++)
 		test.equal(result[k], 0);
 };
+
+exports['no bits for empty array'] = function (test) {
+	var result = bytes.noBits([]);
+	
+	test.equal(0, result);
+};
+
