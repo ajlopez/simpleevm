@@ -63,3 +63,16 @@ exports['no bits for empty array'] = function (test) {
 	test.equal(0, result);
 };
 
+exports['no bits for zero byte in array'] = function (test) {
+	var result = bytes.noBits([ 0 ]);
+	
+	test.equal(0, result);
+};
+
+exports['bits in one byte'] = function (test) {
+	for (var k = 0; k < 8; k++) {
+		var result = bytes.noBits([1 << k]);
+		
+		test.equal(k + 1, result);
+	}
+};
