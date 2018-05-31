@@ -76,3 +76,11 @@ exports['bits in one byte'] = function (test) {
 		test.equal(k + 1, result);
 	}
 };
+
+exports['bits in two byte'] = function (test) {
+	for (var k = 0; k < 8; k++) {
+		var result = bytes.noBits([0, 1 << k]);
+		
+		test.equal(k + 9, result);
+	}
+};
