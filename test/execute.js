@@ -163,7 +163,7 @@ exports['execute two pushes and exp'] = function (test) {
 	test.equal(state.stack.size(), 1);
 	test.equal(state.stack.pop(), 8);
 
-	test.equal(state.gasused, 3 + 3 + 10 + 10 * 3);
+	test.equal(state.gasused, 3 + 3 + 10 + 10 * 2);
 }
 
 exports['execute push and dup'] = function (test) {
