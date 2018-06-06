@@ -166,6 +166,17 @@ exports['execute two pushes and exp'] = function (test) {
 	test.equal(state.gasused, 3 + 3 + 10 + 10 * 2);
 }
 
+exports['execute two pushes and exp to zero'] = function (test) {
+	var state = simpleevm.execute("600060020a");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 1);
+
+	test.equal(state.gasused, 3 + 3 + 10);
+}
+
 exports['execute push and dup'] = function (test) {
 	var state = simpleevm.execute("600180");
 	
