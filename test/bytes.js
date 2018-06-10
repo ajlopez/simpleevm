@@ -93,3 +93,24 @@ exports['bits in two bytes, last one is zero'] = function (test) {
 	}
 };
 
+exports['two equal bytes values'] = function (test) {
+	test.ok(bytes.equal([ 1, 2, 3 ], [ 1, 2, 3 ]));
+};
+
+exports['two equal bytes values with different lengths'] = function (test) {
+	test.ok(bytes.equal([ 1, 2, 3, 0 ], [ 1, 2, 3 ]));
+	test.ok(bytes.equal([ 1, 2, 3 ], [ 1, 2, 3, 0, 0 ]));
+};
+
+exports['two not equal bytes values'] = function (test) {
+	test.ok(!bytes.equal([ 1, 2, 3 ], [ 3, 2, 3 ]));
+	test.ok(!bytes.equal([ 1, 3, 3 ], [ 1, 2, 3 ]));
+	test.ok(!bytes.equal([ 1, 2, 3 ], [ 1, 2, 4 ]));
+};
+
+exports['two not equal bytes values with different lengths'] = function (test) {
+	test.ok(!bytes.equal([ 1, 2, 3 ], [ 3, 2, 3, 0 ]));
+	test.ok(!bytes.equal([ 1, 3, 3, 0, 0 ], [ 1, 2, 3 ]));
+	test.ok(!bytes.equal([ 1, 2, 3 ], [ 1, 2, 4, 0, 0, 0 ]));
+};
+
