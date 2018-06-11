@@ -66,6 +66,21 @@ exports['execute push three bytes'] = function (test) {
 	test.equal(state.gasused, 3);
 }
 
+exports['execute push eight bytes'] = function (test) {
+	var mach = machine();
+	
+	mach.execute(Buffer.from("670102030405060708", 'hex'));
+	
+	var state = mach.state();
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.deepEqual(state.stack.get(0), [ 8, 7, 6, 5, 4, 3, 2, 1 ]);
+	
+	test.equal(state.gasused, 3);
+}
+
 exports['execute address'] = function (test) {
 	var mach = machine({ address: 0x01020304 });
 	
