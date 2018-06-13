@@ -21,6 +21,16 @@ exports['no convertion if array'] = function (test) {
 	test.equal(1, result[1]);
 };
 
+exports['no convertion if buffer'] = function (test) {
+	var result = bytes.toBytes(Buffer.from('0201', 'hex'));
+	
+	test.ok(result);
+	test.ok(result instanceof Buffer);
+	test.equal(2, result.length);
+	test.equal(2, result[0]);
+	test.equal(1, result[1]);
+};
+
 exports['convert simple integer to bytes with expected length'] = function (test) {
 	var result = bytes.toBytes(258, 32);
 	
