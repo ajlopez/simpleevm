@@ -394,6 +394,28 @@ exports['execute push and iszero given false'] = function (test) {
 	test.equal(state.gasused, 3 + 3);
 }
 
+exports['execute push bytes and iszero'] = function (test) {
+	var state = simpleevm.execute("6500000000000015");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 1);
+
+	test.equal(state.gasused, 3 + 3);
+}
+
+exports['execute push bytes and iszero given false'] = function (test) {
+	var state = simpleevm.execute("6500000000000115");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
+
+	test.equal(state.gasused, 3 + 3);
+}
+
 exports['execute and'] = function (test) {
 	var state = simpleevm.execute("610fff61010116");
 	
