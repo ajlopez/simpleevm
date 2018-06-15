@@ -31,6 +31,18 @@ exports['no convertion if buffer'] = function (test) {
 	test.equal(1, result[1]);
 };
 
+exports['buffer is zero'] = function (test) {
+	var result = bytes.isZero(Buffer.from('000000', 'hex'));
+	
+	test.equal(result, true);
+};
+
+exports['buffer is not zero'] = function (test) {
+	var result = bytes.isZero(Buffer.from('000001', 'hex'));
+	
+	test.equal(result, false);
+};
+
 exports['convert simple integer to bytes with expected length'] = function (test) {
 	var result = bytes.toBytes(258, 32);
 	
