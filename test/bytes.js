@@ -43,6 +43,18 @@ exports['buffer is not zero'] = function (test) {
 	test.equal(result, false);
 };
 
+exports['byte array is zero'] = function (test) {
+	var result = bytes.isZero([ 0, 0 ]);
+	
+	test.equal(result, true);
+};
+
+exports['byte array is not zero'] = function (test) {
+	var result = bytes.isZero([ 0, 1 ]);
+	
+	test.equal(result, false);
+};
+
 exports['convert simple integer to bytes with expected length'] = function (test) {
 	var result = bytes.toBytes(258, 32);
 	
