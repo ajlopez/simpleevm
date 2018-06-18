@@ -427,6 +427,23 @@ exports['execute and'] = function (test) {
 	test.equal(state.gasused, 3 + 3 + 3);
 }
 
+exports['execute and using bytes'] = function (test) {
+	var state = simpleevm.execute("650303030303036501010101010116");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	
+	var result = state.stack.pop();
+	
+	test.equal(result.length, 6);
+	
+	for (var k = 0; k < 6; k++)
+		test.equal(result[k], 1);
+
+	test.equal(state.gasused, 3 + 3 + 3);
+}
+
 exports['execute or'] = function (test) {
 	var state = simpleevm.execute("610fff61010117");
 	
