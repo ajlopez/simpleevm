@@ -160,3 +160,15 @@ exports['and bytes with diferent lengths'] = function (test) {
 	test.deepEqual(result, [ 0x01, 0x02, 0x04 ]);
 };
 
+exports['or bytes with same lengths'] = function (test) {
+	var result = bytes.or([ 0x0f, 0x0f, 0x0f ], [ 0xf1, 0x10, 0x20 ]);
+	
+	test.deepEqual(result, [ 0xff, 0x1f, 0x2f ]);
+};
+
+exports['or bytes with diferent lengths'] = function (test) {
+	var result = bytes.or([ 0x0f, 0x0f, 0x0f, 0x01 ], [ 0xf1, 0x10, 0x20 ]);
+	
+	test.deepEqual(result, [ 0xff, 0x1f, 0x2f, 0x01 ]);
+};
+
