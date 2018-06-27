@@ -172,3 +172,15 @@ exports['or bytes with diferent lengths'] = function (test) {
 	test.deepEqual(result, [ 0xff, 0x1f, 0x2f, 0x01 ]);
 };
 
+exports['xor bytes with same lengths'] = function (test) {
+	var result = bytes.xor([ 0x0f, 0x0f, 0x0f ], [ 0xf1, 0x10, 0x20 ]);
+	
+	test.deepEqual(result, [ 0xfe, 0x1f, 0x2f ]);
+};
+
+exports['xor bytes with diferent lengths'] = function (test) {
+	var result = bytes.xor([ 0x0f, 0x0f, 0x0f, 0x01 ], [ 0xf1, 0x10, 0x20 ]);
+	
+	test.deepEqual(result, [ 0xfe, 0x1f, 0x2f, 0x01 ]);
+};
+
