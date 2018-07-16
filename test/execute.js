@@ -483,6 +483,17 @@ exports['execute xor'] = function (test) {
 	test.equal(state.gasused, 3 + 3 + 3);
 }
 
+exports['execute xor using bytes'] = function (test) {
+	var state = simpleevm.execute("650fff0fff0fff6501010101010118");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.deepEqual(state.stack.pop(), [ 0xfe, 0x0e, 0xfe, 0x0e, 0xfe, 0x0e ]);
+
+	test.equal(state.gasused, 3 + 3 + 3);
+}
+
 exports['execute not'] = function (test) {
 	var state = simpleevm.execute("610fff19");
 	
