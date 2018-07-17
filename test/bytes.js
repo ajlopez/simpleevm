@@ -148,6 +148,14 @@ exports['two not equal bytes values with different lengths'] = function (test) {
 	test.ok(!bytes.equal([ 1, 2, 3 ], [ 1, 2, 4, 0, 0, 0 ]));
 };
 
+exports['compare bytes values'] = function (test) {
+	test.equal(bytes.compare([ 1, 2, 3 ], [ 1, 2, 3 ]), 0);
+	test.equal(bytes.compare([ 1, 2 ], [ 1, 2, 3 ]), -1);
+	test.equal(bytes.compare([ 1, 2, 2 ], [ 1, 2, 3 ]), -1);
+	test.equal(bytes.compare([ 1, 2, 4 ], [ 1, 2, 3 ]), 1);
+	test.equal(bytes.compare([ 1, 2, 3 ], [ 1, 2 ]), 1);
+};
+
 exports['and bytes with same lengths'] = function (test) {
 	var result = bytes.and([ 0x0f, 0x0f, 0x0f ], [ 0x01, 0x02, 0x04 ]);
 	
