@@ -273,6 +273,17 @@ exports['execute two pushes and lt given true'] = function (test) {
 	test.equal(state.gasused, 3 + 3 + 3);
 }
 
+exports['execute two pushes and lt given true using bytes'] = function (test) {
+	var state = simpleevm.execute("650000000000026500000000000110");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 1);
+
+	test.equal(state.gasused, 3 + 3 + 3);
+}
+
 exports['execute two pushes and lt given false'] = function (test) {
 	var state = simpleevm.execute("6002600310");
 	
@@ -284,8 +295,30 @@ exports['execute two pushes and lt given false'] = function (test) {
 	test.equal(state.gasused, 3 + 3 + 3);
 }
 
+exports['execute two pushes and lt given false using bytes'] = function (test) {
+	var state = simpleevm.execute("650000000000026500000000000310");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
+
+	test.equal(state.gasused, 3 + 3 + 3);
+}
+
 exports['execute two pushes and lt given false when equal'] = function (test) {
 	var state = simpleevm.execute("6002600210");
+	
+	test.ok(state);
+	test.ok(state.stack);
+	test.equal(state.stack.size(), 1);
+	test.equal(state.stack.pop(), 0);
+
+	test.equal(state.gasused, 3 + 3 + 3);
+}
+
+exports['execute two pushes and lt given false when equal using false'] = function (test) {
+	var state = simpleevm.execute("650000000000026500000000000210");
 	
 	test.ok(state);
 	test.ok(state.stack);
