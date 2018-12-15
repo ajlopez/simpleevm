@@ -20,3 +20,12 @@ exports['get bytes'] = function (test) {
         test.equal(result[k], 0);
 };
 
+exports['to string'] = function (test) {
+    var dataword = datawords.dataword();
+    
+    var result = dataword.toString();
+    
+    test.ok(result);
+    test.equal(result, "0000000000000000000000000000000000000000000000000000000000000000");
+};
+
