@@ -23,6 +23,7 @@ See tests
 - [Ethereum Virtual Machine: Where are the opcode 0xfe and 0xfd documented?](https://ethereum.stackexchange.com/questions/19152/where-are-the-opcode-0xfe-and-0xfd-documented)
 - [JavaScript Typed Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
 - [JavaScript DataView](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+- [How to convert ArrayBuffer to and from String](https://developers.google.com/web/updates/2012/06/How-to-convert-ArrayBuffer-to-and-from-String)
 
 ## Samples
 
