@@ -93,3 +93,12 @@ exports['to string'] = function (test) {
     test.equal(result, "0000000000000000000000000000000000000000000000000000000000000000");
 };
 
+exports['from hexadecimal string'] = function (test) {
+    var dataword = datawords.dataword("0102030405060708090a0b0c0d0e0f");
+    
+    var result = dataword.toString();
+    
+    test.ok(result);
+    test.equal(result, "00000000000000000000000000000000000102030405060708090a0b0c0d0e0f");
+};
+
