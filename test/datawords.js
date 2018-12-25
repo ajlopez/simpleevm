@@ -102,3 +102,28 @@ exports['from hexadecimal string'] = function (test) {
     test.equal(result, "00000000000000000000000000000000000102030405060708090a0b0c0d0e0f");
 };
 
+exports['equals'] = function (test) {
+    var dataword1 = datawords.dataword("01");
+    var dataword2 = datawords.dataword("01");
+    var dataword3 = datawords.dataword("02");
+    var dataword4 = datawords.dataword("0102030405060708090a0b0c0d0e0f");
+    var dataword5 = datawords.dataword("0102030405060708090a0b0c0d0e0f");
+    
+    test.ok(dataword1.equals(dataword1));
+    test.ok(dataword1.equals(dataword2));
+    test.ok(dataword2.equals(dataword1));
+    test.ok(dataword3.equals(dataword3));
+    test.ok(dataword4.equals(dataword4));
+    test.ok(dataword4.equals(dataword5));
+    test.ok(dataword5.equals(dataword4));
+    
+    test.ok(!dataword1.equals(dataword3));
+    test.ok(!dataword3.equals(dataword1));
+    test.ok(!dataword1.equals(dataword4));
+    test.ok(!dataword4.equals(dataword1));
+    
+    test.ok(!dataword1.equals(null));
+    test.ok(!dataword1.equals(42));
+    test.ok(!dataword1.equals("foo"));
+};
+
