@@ -93,6 +93,15 @@ exports['to string'] = function (test) {
     test.equal(result, "0000000000000000000000000000000000000000000000000000000000000000");
 };
 
+exports['to normalized string'] = function (test) {
+    var dataword = datawords.dataword();
+    
+    test.equal(datawords.dataword(0).toNormalizedString(), "00");
+    test.equal(datawords.dataword(1).toNormalizedString(), "01");
+    test.equal(datawords.dataword(256).toNormalizedString(), "0100");
+    test.equal(datawords.dataword("0102030405060708090a0b0c0d0e0f").toNormalizedString(), "0102030405060708090a0b0c0d0e0f");
+};
+
 exports['from hexadecimal string'] = function (test) {
     var dataword = datawords.dataword("0102030405060708090a0b0c0d0e0f");
     
